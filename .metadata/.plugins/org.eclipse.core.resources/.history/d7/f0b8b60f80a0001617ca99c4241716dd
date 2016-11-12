@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package com.abhi.exercise;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ * @author abhinandanbhattacharya
+ *
+ */
+public class LastDigit {
+	
+	private static final String FILE_PATH = "/Users/abhinandanbhattacharya/Documents/workspace/LastDigit.txt";
+
+	/**
+	 * @param args
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 */
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		LastDigit lastDigit = new LastDigit();
+		try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))){
+			String line;
+			while ((line = br.readLine()) != null){
+				
+			}
+			
+		}
+
+	}
+	
+	public long findX(long S){
+		return 0L;
+	}
+
+}

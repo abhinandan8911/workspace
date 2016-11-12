@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package com.abhi.exercise;
+
+/**
+ * @author abhinandanbhattacharya
+ *
+ */
+public class MakingPairs {
+
+	private static final String FILE_PATH = "/Users/abhinandanbhattacharya/Documents/workspace/MakingPairs.txt";
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

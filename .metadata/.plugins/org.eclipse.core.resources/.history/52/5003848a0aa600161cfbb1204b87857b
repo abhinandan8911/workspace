@@ -1,0 +1,37 @@
+/**
+ * 
+ */
+package com.abhi.exercise;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ * @author abhinandanbhattacharya
+ *
+ */
+public class SumOfXor {
+
+	private static final String FILE_PATH = "/Users/abhinandanbhattacharya/Documents/workspace/SumOfXor.txt";
+	/**
+	 * @param args
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 */
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		// TODO Auto-generated method stub
+		try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))){
+			String line;
+			while ((line = br.readLine()) != null){
+				line = line.replace("{", "");
+				line = line.replace("}", "");
+				String[] strArray = line.split(",");
+				long[] inputCards = new long[strArray.length];
+			}
+		}
+
+	}
+
+}
