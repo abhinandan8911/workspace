@@ -1,0 +1,91 @@
+/**
+ * 
+ */
+package com.abhi.exercise;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ * @author abhinandanbhattacharya
+ *
+ */
+public class ThueMorseGame {
+
+	private static final String FILE_PATH = "/Users/abhinandanbhattacharya/Documents/workspace/ThueMorseGame.txt";
+	/**
+	 * @param args
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 */
+	public static void main(String[] args) throws FileNotFoundException, IOException {
+		ThueMorseGame game = new ThueMorseGame();
+		try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))){
+			String line;
+			while ((line = br.readLine()) != null){
+				String[] strArray = line.split(",");
+				String result = game.get(Integer.valueOf(strArray[0]), Integer.valueOf(strArray[1]));
+				System.out.println("For the input : " + line + " the winner is : " + result);
+			}
+		}
+
+	}
+	
+	public String get(int n, int m){
+		String result = null;
+		while(n > 0){
+			int alice = chooseOptimalNumber(m,n);
+			if((n-alice) <= 0){
+				result = "Alice";
+				break;
+			}
+			int bob = chooseOptimalNumber(m, n-alice);
+			if((n-alice-bob) <= 0){
+				result = "Bob";
+				break;
+			}
+			n = n - (bob + alice);
+		}
+		return result;
+	}
+	
+	private boolean isOddNumberOfOnes(String binaryNumber){
+		char[] binaryCharArray = binaryNumber.toCharArray();
+		int count = 0;
+		for(char charElem : binaryCharArray){
+			if(charElem == '1'){
+				count++;
+			}
+		}
+		return (count%2 != 0);
+	}
+	
+	private int chooseOptimalNumber(int range, int available){
+		int optimalNumber = 0;
+		boolean found = false;
+		if(available == 0){
+			return 0;
+		}
+		if(range >= available){
+			return range;
+		}
+		for(int j = range; j > 1; j--){
+			int testNumber = available - j;
+			if(isOddNumberOfOnes(Integer.toBinaryString(testNumber))){
+				continue;
+			}
+			else{
+				optimalNumber = j;
+				found = true;
+				break;
+			}
+		}
+		if(found){
+			return optimalNumber;
+		}
+		return 1;
+	}
+
+}
