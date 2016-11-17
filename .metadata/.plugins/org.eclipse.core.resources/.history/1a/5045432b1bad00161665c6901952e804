@@ -37,7 +37,7 @@ public class ThueMorseGame {
 		String result = null;
 		while(n > 0){
 			int alice = chooseOptimalNumber(m,n);
-			if((n-alice) == 0){
+			if((n-alice) <= 0){
 				result = "Alice";
 				break;
 			}
@@ -48,7 +48,7 @@ public class ThueMorseGame {
 				}
 			}
 			int bob = chooseOptimalNumber(m, n-alice);
-			if((n-alice-bob) == 0){
+			if((n-alice-bob) <= 0){
 				result = "Bob";
 				break;
 			}
@@ -81,7 +81,7 @@ public class ThueMorseGame {
 			return 0;
 		}
 		if(range >= available){
-			return available;
+			return range;
 		}
 		for(int j = range; j > 1; j--){
 			int testNumber = available - j;
