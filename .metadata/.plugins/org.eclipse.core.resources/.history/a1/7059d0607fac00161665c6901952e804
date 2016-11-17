@@ -41,22 +41,10 @@ public class ThueMorseGame {
 				result = "Alice";
 				break;
 			}
-			else{
-				if(isOddNumberOfOnes(Integer.toBinaryString(n-alice))){
-					result = "Bob";
-					break;
-				}
-			}
 			int bob = chooseOptimalNumber(m, n-alice);
 			if((n-alice-bob) <= 0){
 				result = "Bob";
 				break;
-			}
-			else{
-				if(isOddNumberOfOnes(Integer.toBinaryString(n-alice-bob))){
-					result = "Alice";
-					break;
-				}
 			}
 			n = n - (bob + alice);
 		}

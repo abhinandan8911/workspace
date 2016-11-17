@@ -52,12 +52,6 @@ public class ThueMorseGame {
 				result = "Bob";
 				break;
 			}
-			else{
-				if(isOddNumberOfOnes(Integer.toBinaryString(n-alice-bob))){
-					result = "Alice";
-					break;
-				}
-			}
 			n = n - (bob + alice);
 		}
 		return result;
